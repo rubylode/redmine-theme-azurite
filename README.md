@@ -1,10 +1,10 @@
-# Azurite for Redmine
+# Rubylode Azurite for Redmine
 
 A blueprint: a blue sheet, white drawing lines, a grid and a title block.
 
 A theme for Redmine 7 and up. It is CSS plus one small script (`javascripts/theme.js`), with no plugin and no change to Redmine itself. The script only reads the page: it puts a ring round issue numbers, adds initials next to assignees, adds a title block at the foot of the page and builds a row of view tabs. Without the script the theme still works, with plainer lists. Light first, with a dark set that follows your system setting (see [Dark mode](#dark-mode)).
 
-![A walk through Azurite: the issue list, an issue, the wiki, the to-do page and the new-issue form](docs/demo/walkthrough-light.gif)
+![A walk through Rubylode Azurite: the issue list, an issue, the wiki, the to-do page and the new-issue form](docs/demo/walkthrough-light.gif)
 
 | | |
 |---|---|
@@ -14,7 +14,7 @@ A theme for Redmine 7 and up. It is CSS plus one small script (`javascripts/them
 
 Dark mode:
 
-![A walk through Azurite in dark mode](docs/demo/walkthrough-dark.gif)
+![A walk through Rubylode Azurite in dark mode](docs/demo/walkthrough-dark.gif)
 
 | | |
 |---|---|
