@@ -1,0 +1,229 @@
+/* Rubylode Azurite, a theme for Redmine 7
+ * Copyright (C) 2026  Nick Gorbikoff
+ * GNU General Public License, version 2 or later. See the LICENSE file.
+ * Generated from the shared base of the Rubylode themes: a change made here is overwritten by the next build. */
+
+/* Azurite's tokens, light values: a blueprint. A cobalt sheet with white ink and white drawing lines, a pale amber for links and
+ * the one highlight, and no rounded corners. The dark values of the same names are in dark.css (the same sheet in deep navy).
+ * The theme is blue in both schemes, so the text colours here are light ones: "surface" and "ink" are both on the blue side. */
+:root {
+  /* Surfaces: the sheet, a hair lighter for cards, a darker blue for bands and stripes. */
+  --theme-page: #1f58a2;
+  --theme-surface: #215ba6;
+  --theme-surface-sunken: #1b509a;      /* attribute panels, journal headers, table header bands and stripes */
+  --theme-surface-hover: #2561ac;       /* hovered rows and menu items */
+  --theme-line: rgba(255, 255, 255, 0.4);       /* the drawing lines: panel borders and row lines */
+  --theme-line-soft: rgba(255, 255, 255, 0.14); /* column lines, quiet chips */
+  --theme-line-strong: #b3d0f3;         /* field borders: 3:1 against the sheet and the cards */
+
+  /* Text: white and two blues that stay above 4.5:1 on every surface above. */
+  --theme-ink: #ffffff;
+  --theme-ink-soft: #eef5ff;
+  --theme-ink-muted: #e8f1fc;
+  --theme-ink-on-colour: #ffffff;       /* text on a strong colour: priority Immediate, avatars */
+  --theme-ink-on-light-colour: #10335e; /* text on a light avatar colour */
+
+  /* The accent: blue tints for hover (0 to 2), then pale amber for lines, fills and links (3 to 9). The amber is the only warm
+   * colour on the sheet. Step 6 is the plugins' accent, step 7 the link colour. */
+  --theme-accent-0: #225ca8;
+  --theme-accent-1: #2c64b3;
+  --theme-accent-2: #4a89d6;
+  --theme-accent-3: #ffe9a8;
+  --theme-accent-4: #ffe9a8;
+  --theme-accent-5: #ffe08a;
+  --theme-accent-6: #ffd45c;
+  --theme-accent-7: #ffe9a8;
+  --theme-accent-8: #fff3c9;
+  --theme-accent-9: #fff3c9;
+  --theme-accent-1-rgb: 44, 100, 179;
+
+  /* A second and third hue, kept inside the blue and the amber. */
+  --theme-secondary: #cfe2fa;
+  --theme-secondary-pale: #1d4f94;
+  --theme-tertiary: #ffd45c;
+  --theme-tertiary-pale: #ffe08a;
+  --theme-accent-pale: #184b8f;
+
+  --theme-link: var(--theme-accent-7);
+  --theme-link-hover: var(--theme-accent-8);
+  --theme-primary: #ffffff;             /* the main button is a white plate with blue ink, as on a title block */
+  --theme-primary-hover: #e6f0fd;
+  --theme-ink-on-primary: #1b4f93;
+  --theme-primary-background: #ffffff;
+  --theme-primary-background-hover: #e6f0fd;
+  --theme-redmine-accent: var(--theme-accent-7);
+  --theme-redmine-accent-rgb: 255, 233, 168;
+  --theme-selected-tab-border-image: none;
+
+  /* The header: one flat band, a shade darker than the sheet. */
+  --theme-header-background: #184b8f;
+  --theme-header-background-solid: #184b8f;
+  --theme-header-ink: #ffffff;
+  --theme-header-link: #eaf3ff;
+  --theme-header-hover-background: rgba(255, 255, 255, 0.12);
+  --theme-header-line: rgba(255, 255, 255, 0.4);
+  --theme-header-field-background: rgba(255, 255, 255, 0.1);
+  --theme-header-field-border: #b3d0f3;
+  --theme-mark-image: none;
+
+  /* The project sidebar (layout "sidebar"): a rail a shade darker than the sheet, split from it by a white line. */
+  --theme-sidebar-width: 244px;
+  --theme-sidebar-background: #174a8f;
+  --theme-sidebar-line: rgba(255, 255, 255, 0.55);
+  --theme-sidebar-tile: rgba(255, 255, 255, 0.14);
+  --theme-sidebar-hover-background: rgba(255, 255, 255, 0.1);
+  --theme-sidebar-selected-background: #123f7e;
+  --theme-sidebar-selected-ink: #ffffff;
+  --theme-sidebar-selected-edge: #ffffff;
+
+  /* Buttons that are not the primary: a white outline on the sheet. Delete buttons and errors: a deep rose with pale ink. */
+  --theme-button-background: rgba(255, 255, 255, 0.1);
+  --theme-button-border: rgba(255, 255, 255, 0.8);
+  --theme-button-ink: #ffffff;
+  --theme-danger-soft: #7a2441;
+  --theme-danger-soft-border: #e68aa0;
+  --theme-danger-ink: #ffe4e1;
+
+  /* Focus: a white outline. */
+  --theme-focus: #ffffff;
+  --theme-focus-halo: rgba(255, 255, 255, 0.35);
+
+  /* Meaning, in light tones that read on blue. Status ids in a default Redmine: 1 New, 2 In Progress, 3 Resolved, 4 Feedback,
+   * 5 Closed, 6 Rejected. */
+  --theme-status-new: #e6f0fd;
+  --theme-status-in-progress: #ffd45c;
+  --theme-status-resolved: #7fe0a8;
+  --theme-status-feedback: #ffb066;
+  --theme-status-closed: #9db8de;
+  --theme-status-rejected: #ff8d99;
+  --theme-success: #7fe0a8;
+  --theme-warning: #ffb066;
+  --theme-danger: #ff8d99;
+  --theme-danger-strong: #b3123f;       /* white text on it reaches AA */
+  --theme-success-ink: #c8f5dc;
+  --theme-success-soft: #1a5e4a;
+  --theme-caution-ink: #ffe9b0;
+  --theme-caution-soft: #6b5214;
+  --theme-chip-ink-mix: #ffffff;        /* on a blue sheet a chip's text is its colour lifted towards white */
+  --theme-chip-ink-share: 35%;
+  --theme-chip-fill-share: 8%;
+
+  /* Messages, avatars, activity markers, search highlights, diffs and the Gantt chart. */
+  --theme-flash-success-background: #1a5e4a;
+  --theme-flash-success-border: #6fcf9f;
+  --theme-flash-success-ink: #d8f7e6;
+  --theme-flash-warning-background: #6b5214;
+  --theme-flash-warning-border: #e0b84f;
+  --theme-flash-warning-ink: #ffeab0;
+  --theme-avatar-color-0: #163f7a;      /* every avatar is a navy disc with a white ring; see flourishes.css */
+  --theme-avatar-color-1: #163f7a;
+  --theme-avatar-color-7: #163f7a;
+  --theme-activity-edit-ink: #dbe9fb;
+  --theme-activity-wiki-ink: #5a3a00;
+  --theme-search-highlight-ink: #10335e;
+  --theme-diff-removed: #7a2441;
+  --theme-diff-added: #1a5e4a;
+  --theme-gantt-late: #e7a26b;
+  --theme-gantt-late-label: #ffc58f;
+
+  /* Shape and depth: square corners and no resting shadows, as on a drawing. Only things that float have a shadow. */
+  --theme-radius-highlight: 0;
+  --theme-radius-inline: 0;
+  --theme-radius-small: 0;
+  --theme-radius: 0;
+  --theme-radius-panel: 0;
+  --theme-radius-pill: 0;
+  --theme-radius-round: 50%;
+  --theme-border-width: 1px;
+  --theme-border-style: solid;
+  --theme-shadow-card: none;
+  --theme-shadow-popup: 0 12px 32px rgba(5, 20, 50, 0.5);
+  --theme-shadow-primary-button: none;
+  --theme-shadow-header-scrolled: 0 2px 10px rgba(5, 20, 50, 0.35);
+  --theme-space-small: 8px;
+  --theme-space: 16px;
+  --theme-space-large: 24px;
+  --theme-density: 0.9;
+  --theme-top-bar-height: 44px;
+  --theme-project-bar-height: 46px;
+
+  /* Type: the bundled Noto Sans and Noto Sans Mono (in fonts/, SIL Open Font License 1.1), the system's own fonts after them. */
+  --theme-font-size: 16px;
+  --theme-font: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --theme-font-monospace: "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --theme-title-font: var(--theme-font);
+  --theme-title-weight: 600;
+  --theme-code-background: #eaf2fd;     /* code stays on a light plate: Redmine's syntax colours are made for it */
+  --theme-code-ink: #10335e;
+  --theme-syntax-keyword: #006b00;
+
+  /* Icons drawn in a stylesheet carry their colour inside the image. */
+  --theme-select-arrow-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23dbe9fb' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  --theme-search-field-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23dbe9fb' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+  --theme-project-jump-arrow-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23dbe9fb' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+  /* Redmine's grey ramp (--oc-gray-0 to -9) and its white, turned over: steps 0 to 4 are the blues behind and between things,
+   * steps 5 to 9 the light ink. */
+  --theme-redmine-white: var(--theme-surface);
+  --theme-neutral-0: #1d559e;
+  --theme-neutral-1: #1b509a;
+  --theme-neutral-2: #194a90;
+  --theme-neutral-3: #4a89d6;
+  --theme-neutral-4: #6aa1e0;
+  --theme-neutral-5: #e0ecfb;
+  --theme-neutral-6: #e0ecfb;
+  --theme-neutral-7: #e6f0fd;
+  --theme-neutral-8: #f0f6ff;
+  --theme-neutral-9: #ffffff;           /* the to-do page mixes this at 62 percent for its counts */
+  --theme-neutral-9-rgb: 255, 255, 255;
+
+  /* Azurite's own, for the script's additions (extra.js) and the flourishes. */
+  --theme-sheet-grid: rgba(255, 255, 255, 0.1);
+  --theme-sheet-grid-fine: rgba(255, 255, 255, 0.045);
+  --theme-sheet-glow: rgba(255, 255, 255, 0.12);
+  --theme-sheet-plan-opacity: 0.15;
+  --theme-sheet-frame: rgba(255, 255, 255, 0.55);
+  --theme-sheet-plate: #184b8f;         /* the title block and the sign-in plate */
+  --theme-phone-menu: #123d78;
+  --theme-phone-menu-ink: #d6e6fb;
+}
+
+/* Redmine's palette, pointed at the tokens. Redmine 7 colours itself with the Open Color variables (--oc-*) and a few
+ * --color-* names, so remapping them recolours the parts of Redmine the theme does not style by hand. */
+:root {
+  --fonts-main: var(--theme-font);
+
+  --oc-white: var(--theme-redmine-white);
+  --oc-gray-0: var(--theme-neutral-0);
+  --oc-gray-1: var(--theme-neutral-1);
+  --oc-gray-2: var(--theme-neutral-2);
+  --oc-gray-3: var(--theme-neutral-3);
+  --oc-gray-4: var(--theme-neutral-4);
+  --oc-gray-5: var(--theme-neutral-5);
+  --oc-gray-6: var(--theme-neutral-6);
+  --oc-gray-7: var(--theme-neutral-7);
+  --oc-gray-8: var(--theme-neutral-8);
+  --oc-gray-9: var(--theme-neutral-9);
+  --oc-gray-9-rgb: var(--theme-neutral-9-rgb);
+
+  --oc-blue-0: var(--theme-accent-0);
+  --oc-blue-1: var(--theme-accent-1);
+  --oc-blue-2: var(--theme-accent-2);
+  --oc-blue-3: var(--theme-accent-3);
+  --oc-blue-4: var(--theme-accent-4);
+  --oc-blue-5: var(--theme-accent-5);
+  --oc-blue-6: var(--theme-accent-6);
+  --oc-blue-7: var(--theme-redmine-accent);
+  --oc-blue-8: var(--theme-accent-7);
+  --oc-blue-9: var(--theme-link); /* Redmine colours its links with step 9 */
+  --oc-blue-1-rgb: var(--theme-accent-1-rgb);
+  --oc-blue-7-rgb: var(--theme-redmine-accent-rgb);
+  --oc-indigo-0: var(--theme-accent-0);
+  --oc-indigo-1: var(--theme-accent-1);
+  --oc-indigo-2: var(--theme-accent-2);
+  --oc-indigo-5: var(--theme-accent-5);
+  --oc-indigo-9: var(--theme-accent-9);
+
+  --color-top-menu-background: var(--theme-header-background-solid);
+  --color-header-background: var(--theme-header-background-solid);
+}

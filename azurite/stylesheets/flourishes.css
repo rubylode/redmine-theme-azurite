@@ -1,0 +1,290 @@
+/* Rubylode Azurite, a theme for Redmine 7
+ * Copyright (C) 2026  Nick Gorbikoff
+ * GNU General Public License, version 2 or later. See the LICENSE file.
+ * Generated from the shared base of the Rubylode themes: a change made here is overwritten by the next build. */
+
+/* Azurite's own touches, the ones tokens cannot express. The sidebar is the base's sidebar layout ("layout": "sidebar" in theme.json),
+ * and the colours, square corners and type are tokens. What is left here is the drawing:
+ *  1. The sheet: a grid, a faint floor plan, a double frame and a monospaced type size.
+ *  2. Headings, the sidebar's sheet numbers and the framed project name.
+ *  3. The issue list as a boxed schedule: state circles, priority flags, tracker squares, group labels.
+ *  4. The script's additions (extra.js): rings, view tabs and the title block at the foot of the page.
+ *  5. Fields, buttons, avatars, the sign-in plate and the phone menu, as plates and outlines.
+ * Every rule here works on top of the tokens, so the dark values in dark.css carry through. */
+
+/* ==========================================================================
+   1. The sheet
+   The grid and the plan are drawn by pseudo-elements, so no element behind the text has a background image and the page check
+   can measure it. The plan is dimmed so a white line behind a label stays under a quarter of the text's own white.
+   ========================================================================== */
+body { letter-spacing: 0.01em; }
+#wrapper, #main { background: transparent; }
+#wrapper { position: relative; z-index: 1; }
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("../images/floor-plan.svg") center / 1500px auto no-repeat;
+  opacity: var(--theme-sheet-plan-opacity);
+  transform: rotate(-3deg) scale(1.15);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 40% 20%, var(--theme-sheet-glow), transparent 60%),
+    linear-gradient(var(--theme-sheet-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--theme-sheet-grid) 1px, transparent 1px),
+    linear-gradient(var(--theme-sheet-grid-fine) 1px, transparent 1px),
+    linear-gradient(90deg, var(--theme-sheet-grid-fine) 1px, transparent 1px);
+  background-size: auto, 120px 120px, 120px 120px, 20px 20px, 20px 20px;
+}
+/* The sheet's double frame, in front of everything and never in the way of a click. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 10px;
+  z-index: 50;
+  pointer-events: none;
+  border: 2px solid var(--theme-sheet-frame);
+  outline: 1px solid var(--theme-sheet-frame);
+  outline-offset: -8px;
+}
+
+/* ==========================================================================
+   2. Headings and the sidebar
+   ========================================================================== */
+#content > h2 {
+  padding-block-end: 8px;
+  border-block-end: 2px solid #ffffff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+#content h3, .wiki h1, .wiki h2, .wiki h3, .wiki h4 { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.wiki h2 { border-block-end-color: var(--theme-line); }
+
+@media screen and (min-width: 1100px) {
+  /* The rail is drawn by the wrapper's ::before, not by a background, so the text over it can be measured. */
+  body:not(.controller-account) #wrapper { background: none; }
+  body:not(.controller-account) #wrapper::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    z-index: -1;
+    inline-size: var(--theme-sidebar-width);
+    box-sizing: border-box;
+    background: var(--theme-sidebar-background);
+    border-inline-end: 1px solid var(--theme-sidebar-line);
+  }
+
+  /* The project name in a frame, set in capitals. */
+  body:not(.controller-account) #header h1 {
+    margin: 22px 16px 10px;
+    padding: 12px 14px;
+    border: 2px solid #ffffff;
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  body:not(.controller-account) #header h1::before { display: none; }
+
+  /* Sheet numbers in the project menu, from a counter: A-101, A-102 and so on. */
+  body:not(.controller-account) #main-menu ul { counter-reset: sheet 100; }
+  body:not(.controller-account) #main-menu > ul > li:has(> a:not(.new-object)) { counter-increment: sheet; }
+  body:not(.controller-account) #main-menu > ul > li > a:not(.new-object)::before {
+    content: "A-" counter(sheet) "\00a0\00a0";
+    color: var(--theme-ink-muted);
+  }
+  body:not(.controller-account) #main-menu li a.selected,
+  body:not(.controller-account) #main-menu li a.selected:hover {
+    padding-block: 6px;
+    padding-inline: 11px;
+    border: 1px solid #ffffff;
+    box-shadow: none;
+  }
+}
+
+/* ==========================================================================
+   3. The issue list as a boxed schedule
+   ========================================================================== */
+table.list { border: 1.5px solid #ffffff; }
+table.list > thead > tr > th, table.list thead th {
+  background: rgba(255, 255, 255, 0.14);
+  border-block-end: 1.5px solid #ffffff;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+}
+table.list > tbody > tr > td { border-block-end-color: var(--theme-line); }
+table.list th a, table.list th a:visited { color: #ffffff; }
+
+/* Status: a circle, empty for New, half for In Progress and Feedback, full for the rest; the colour is the status colour. */
+table.list.issues > tbody > tr.issue > td.status,
+table.list.issues > tbody > tr.issue:is(.priority-1, .priority-2, .priority-3, .priority-4, .priority-5) > td.priority {
+  inline-size: auto;
+  background-image: none;
+  background-clip: border-box;
+  color: var(--theme-ink);
+  font-size: inherit;
+  font-weight: 400;
+}
+table.list.issues > tbody > tr.issue > td.status::after,
+table.list.issues > tbody > tr.issue > td.priority::after { display: none; }
+table.list.issues > tbody > tr.issue { --state-fill: var(--chip); }
+table.list.issues > tbody > tr.issue.status-1 { --state-fill: transparent; }
+table.list.issues > tbody > tr.issue:is(.status-2, .status-4) { --state-fill: conic-gradient(var(--chip) 0 50%, transparent 0); }
+table.list.issues > tbody > tr.issue > td.status::before {
+  box-sizing: border-box;
+  inline-size: 12px;
+  block-size: 12px;
+  margin: 0 7px 0 0;
+  border: 2px solid var(--chip);
+  border-radius: var(--theme-radius-round);
+  background: var(--state-fill);
+  vertical-align: -1px;
+}
+
+/* Priority: a flag before the name, pale for the three lower levels and amber for the two highest. */
+table.list.issues > tbody > tr.issue { --priority-colour: var(--theme-secondary); }
+table.list.issues > tbody > tr.issue:is(.priority-4, .priority-5) { --priority-colour: var(--theme-accent-5); }
+table.list.issues > tbody > tr.issue[class*="priority-"] > td.priority::before {
+  content: "\2691";
+  inline-size: auto;
+  block-size: auto;
+  margin: 0 6px 0 0;
+  background: none;
+  color: var(--priority-colour);
+  vertical-align: baseline;
+}
+table.list.issues > tbody > tr.issue.priority-5 > td.priority { font-weight: 700; }
+
+/* Tracker: a small square, amber for a bug and white for the others (Redmine's default ids 1 Bug, 2 Feature, 3 Support). */
+tr.issue.tracker-1 { --tracker-colour: var(--theme-accent-5); }
+tr.issue.tracker-2, tr.issue.tracker-3 { --tracker-colour: #ffffff; }
+table.list.issues td.tracker::before {
+  content: "";
+  display: inline-block;
+  inline-size: 9px;
+  block-size: 9px;
+  margin-inline-end: 7px;
+  background: var(--tracker-colour, var(--theme-line-strong));
+}
+
+/* Group rows: the group's name in an outlined label, with its count beside it. */
+table.list > tbody > tr.group > td { background: transparent; }
+table.list tr.group span.name {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid #ffffff;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. The script's additions (extra.js). Each is a nicety: without the script the list shows plain numbers and names.
+   ========================================================================== */
+.issue-number-ring {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 30px;
+  block-size: 30px;
+  border: 1.5px solid #ffffff;
+  border-radius: var(--theme-radius-round);
+  color: #ffffff;
+  font-size: 0.6875rem;
+}
+table.list td.id a:hover .issue-number-ring { background: #ffffff; color: var(--theme-ink-on-primary); }
+
+/* Initials in a ring in place of the assignee's name, which stays for screen readers and in the tooltip. */
+.assignee-initials {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 26px;
+  block-size: 26px;
+  margin-inline-end: 6px;
+  border: 1.5px solid #ffffff;
+  border-radius: var(--theme-radius-round);
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+table.list td.assigned_to { white-space: nowrap; }
+table.list td.assigned_to a.assignee-name {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The row of view tabs above the issue list: Issues, Gantt, Calendar, Activity. */
+nav.view-tabs { display: flex; gap: 4px; margin-block: 0 14px; border-block-end: 1px solid #ffffff; }
+nav.view-tabs a, nav.view-tabs a:visited {
+  margin-block-end: -1px;
+  padding: 8px 14px;
+  border-block-end: 2px solid transparent;
+  color: var(--theme-ink-muted);
+}
+nav.view-tabs a:hover { color: #ffffff; text-decoration: none; }
+nav.view-tabs a.selected { border-color: #ffffff; color: #ffffff; font-weight: 600; }
+
+/* The title block at the foot of the page, as on a drawing sheet: project, sheet and date. */
+.title-block {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  inline-size: max-content;
+  max-inline-size: 100%;
+  margin-block: 28px 0;
+  margin-inline-start: auto;
+  border: 2px solid #ffffff;
+  background: var(--theme-sheet-plate);
+  color: #ffffff;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.title-block div { padding: 6px 12px; border-inline-end: 1px solid var(--theme-line); border-block-end: 1px solid var(--theme-line); }
+.title-block div:nth-child(3n) { border-inline-end: 0; }
+.title-block div:nth-last-child(-n+3) { border-block-end: 0; }
+.title-block b { display: block; color: var(--theme-ink-muted); font-size: 0.6875rem; font-weight: 500; }
+
+/* ==========================================================================
+   5. Plates and outlines: the issue card, fields, buttons, avatars, the sign-in plate and the phone menu
+   ========================================================================== */
+div.issue { border: 1.5px solid #ffffff; }
+input[type=text], input[type=password], input[type=email], input[type=number], input[type=search], input[type=date],
+input[type=url], input[type=tel], input:not([type]), select, textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+input[type=submit], input[type=button], input[type=reset], button, a.button {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+[class*="avatar-color-"], .avatar-color-2 { background-color: #163f7a; border: 1px solid #ffffff; color: #ffffff; }
+#login-form { background: var(--theme-sheet-plate); border: 2px solid #ffffff; box-shadow: none; }
+
+body .flyout-menu { background-color: var(--theme-phone-menu); color: var(--theme-phone-menu-ink); }
+body .flyout-menu h3 { background-color: rgba(255, 255, 255, 0.07); border-block-color: var(--theme-phone-menu); color: var(--theme-phone-menu-ink); }
+body .flyout-menu a, body .flyout-menu a:link, body .flyout-menu a:visited, body .flyout-menu .icon-label { color: var(--theme-phone-menu-ink); }
+body .flyout-menu a.selected, body .flyout-menu a.selected:link, body .flyout-menu a.selected:hover { color: #ffffff; }
+body .flyout-menu a:hover { color: #ffffff; }
+body .flyout-menu .flyout-menu__avatar { background: rgba(255, 255, 255, 0.1); }
+
+/* The Home plugin draws its main button in its accent with white text; on this sheet the accent is amber, so the button uses a navy plate instead. */
+body .rubylode-home { --rubylode-home-accent: #0f3a75; --rubylode-home-neutral-soft: rgba(255, 255, 255, 0.08); }
+body .rubylode-home .rubylode-home-button { border-color: #ffffff; }
+
+/* The primary colour here is a white plate, so the count badge and the current page keep the plate's blue ink in the dark scheme too,
+ * where the base sets white on them. */
+span.badge.badge-count, .pagination ul.pages li.current span, .pagination ul.pages li.current a { color: var(--theme-ink-on-primary); }
