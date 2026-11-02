@@ -1,8 +1,8 @@
 # Rubylode Azurite for Redmine
 
-A blueprint: a blue sheet, white drawing lines, a grid and a title block.
+A blueprint theme for Redmine 7 and up: a blue sheet with white drawing lines, a grid and a title block.
 
-A theme for Redmine 7 and up. It is CSS plus one small script (`javascripts/theme.js`), with no plugin and no change to Redmine itself. The script only reads the page: it puts a ring round issue numbers, adds initials next to assignees, adds a title block at the foot of the page and builds a row of view tabs. Without the script the theme still works, with plainer lists. Light first, with a dark set that follows your system setting (see [Dark mode](#dark-mode)).
+It is CSS plus one small script (`javascripts/theme.js`). It needs no plugin and changes nothing in Redmine. The script only reads the page: it puts a ring round issue numbers, adds initials next to assignees, adds a title block at the foot of the page and builds a row of view tabs. Without the script you get plainer lists. The light set is the main one, and a dark set follows your system setting (see [Dark mode](#dark-mode)).
 
 ![A walk through Rubylode Azurite: the issue list, an issue, the wiki, the to-do page and the new-issue form](docs/demo/walkthrough-light.gif)
 
@@ -29,7 +29,6 @@ Dark mode:
 - [Development](#development)
 - [Checks and releases](#checks-and-releases)
 - [License](#license)
-- [Disclaimer](#disclaimer)
 
 ## Install
 
@@ -37,21 +36,21 @@ Dark mode:
 2. Restart Redmine.
 3. In Administration, Settings, Display, choose **Azurite** as the theme and save.
 
-To go back, choose another theme on the same page. Nothing is written to the database apart from that setting.
+To go back, choose another theme on the same page. The only thing written to the database is that setting.
 
 ## What is covered
 
-The header and menus, the sidebar, the issue list, the issue page with its history, the new and edit forms, buttons, flash
-messages, tables, tabs, the context menu and the login page, in light and dark. Other pages (Gantt, calendar, wiki, administration)
-take their colours from the same variables and are fixed up as problems turn up.
+Styled by hand, in light and dark: the header and menus, the sidebar, the issue list, the issue page with its history, the new and edit forms, buttons, flash messages, tables, tabs, the context menu and the login page.
+
+The other pages (Gantt, calendar, wiki, administration) take their colours from the same variables, and I fix them as I find problems.
 
 ## Dark mode
 
-Dark mode follows your system setting and is part of the design, not an afterthought. If you would rather the theme stayed light, delete the `@media (prefers-color-scheme: dark)` block at the end of `azurite/stylesheets/application.css`; every dark rule is in that one block.
+Dark mode follows your system setting. To keep the theme light, delete the `@media (prefers-color-scheme: dark)` block at the end of `azurite/stylesheets/application.css`. Every dark rule is in that block.
 
 ## Compatibility
 
-Redmine 7.0 and newer. Tested on 7.0.2 and the 7.0 line. Older versions are not expected to work.
+Redmine 7.0 and newer, tested on 7.0.2 and the 7.0 line. Older versions are not supported.
 
 ## Development
 
@@ -66,25 +65,23 @@ npm run record          # docs/demo, a GIF of a walk through the pages
 ruby bin/demo reset     # wipe the demo
 ```
 
-If a copy of the Rubylode to-do plugin sits next to this repository (`../redmine-rubylode-todo`, or set `TODO_PLUGIN_PATH`), the demo mounts it and
-the check, screenshots and recording include its page. Without it they skip that page.
+If a copy of the Rubylode to-do plugin sits next to this repository (`../redmine-rubylode-todo`, or set `TODO_PLUGIN_PATH`), the demo mounts it and the check, screenshots and recording include its page. Without it they skip that page.
 
-The check fails on console errors, failed requests, sideways scrolling and text below WCAG AA contrast. `REDMINE_TAG=7.0 ruby bin/demo up`
-runs it against another Redmine version. After you change the stylesheet, run `ruby bin/demo restart` and reload: Redmine caches theme
-files until it restarts.
+The check fails on console errors, failed requests, sideways scrolling and text below WCAG AA contrast. `REDMINE_TAG=7.0 ruby bin/demo up` runs it against the other Redmine version. After you change the stylesheet, run `ruby bin/demo restart` and reload, because Redmine caches theme files until it restarts.
 
 ## Checks and releases
 
-Every push starts a real Redmine from its Docker image (7.0.2 and the 7.0 line), loads every page of the theme in light and dark at desktop and phone width, and fails on console errors, failed requests, sideways scrolling and low text contrast. On GitHub that is `.github/workflows/check.yml`, on GitHub's own runners, and it also runs on pull requests. On a self-hosted Gitea it is `.gitea/workflows/check.yml`, which runs only on pushes to `main`, because that runner works on the host with Docker access and must only run code that is already merged.
+Every push starts a real Redmine from its Docker image (7.0.2 and 7.0), loads every page of the theme in light and dark at desktop and phone width, and fails on console errors, failed requests, sideways scrolling and low text contrast.
 
-A tag such as `v1.0.0` runs the same check, builds `<name>-<version>.zip` holding the theme folder, and attaches it to a release with the matching section of `CHANGELOG.md` as its notes (`release.yml` in the same folders). The tag needs a section for that version in the changelog.
+- GitHub: `.github/workflows/check.yml` runs on every push and on pull requests.
+- Gitea: `.gitea/workflows/check.yml` runs on pushes to `main` only. Its runner works on the host with Docker access, so it should only run code that is already merged.
+
+A tag such as `v1.0.0` runs the same check, builds `<name>-<version>.zip` with the theme folder in it, and attaches it to a release with the matching section of `CHANGELOG.md` as the notes (`release.yml` in the same folders). The tag needs a section for that version in the changelog.
 
 ## License
 
 GPL version 2 or later, the same as Redmine. See `LICENSE`. Copyright (C) 2026  Nick Gorbikoff.
 
-## Disclaimer
+No warranty, as the GPL says. Try the theme on a copy of your tracker before the real one.
 
-Use at your own risk. This software is provided as is, without warranty of any kind, express or implied. The author is not
-liable for any damage, data loss or downtime that comes from using it. Try it on a copy of your tracker before you use it on the
-real one.
+Pull Requests are welcome!
