@@ -50,34 +50,34 @@ deep navy.
 | Status block, unavailable | `#ffe9b0` | `#6b5214` | 6.17 |
 | Title block text | `#ffffff` | `#184b8f` | 8.60 |
 | Navy plate button text (Home plugin) | `#ffffff` | `#0f3a75` | 11.16 |
-| Chip New, on a panel | `#f6fafe` | `#3167ad` | 5.45 |
-| Chip New, on a stripe | `#f6fafe` | `#2b5da2` | 6.28 |
-| Chip New, on a hovered row | `#f6fafe` | `#346cb2` | 5.05 |
-| Chip In Progress, on a panel | `#fff0c6` | `#3365a0` | 5.30 |
-| Chip In Progress, on a stripe | `#fff0c6` | `#2d5b95` | 6.12 |
-| Chip In Progress, on a hovered row | `#fff0c6` | `#366aa6` | 4.90 |
-| Chip Resolved, on a panel | `#d2f4e1` | `#2966a6` | 5.04 |
-| Chip Resolved, on a stripe | `#d2f4e1` | `#235c9b` | 5.81 |
-| Chip Resolved, on a hovered row | `#d2f4e1` | `#2c6bac` | 4.67 |
-| Chip Feedback, on a panel | `#ffe3c9` | `#3362a1` | 5.05 |
-| Chip Feedback, on a stripe | `#ffe3c9` | `#2d5896` | 5.83 |
-| Chip Feedback, on a hovered row | `#ffe3c9` | `#3667a6` | 4.67 |
-| Chip Closed, on a panel | `#dde6f3` | `#2b62aa` | 4.84 |
-| Chip Closed, on a stripe | `#dde6f3` | `#25589f` | 5.58 |
-| Chip Closed, on a hovered row | `#dde6f3` | `#2f68b0` | 4.48 |
-| Chip Rejected, on a panel | `#ffd7db` | `#335fa5` | 4.82 |
-| Chip Rejected, on a stripe | `#ffd7db` | `#2d559a` | 5.57 |
-| Chip Rejected, on a hovered row | `#ffd7db` | `#3665aa` | 4.46 |
-| Chip High, on a panel | `#ffe3c9` | `#3362a1` | 5.05 |
-| Chip High, on a stripe | `#ffe3c9` | `#2d5896` | 5.83 |
-| Chip High, on a hovered row | `#ffe3c9` | `#3667a6` | 4.67 |
-| Chip Urgent, on a panel | `#ffd7db` | `#335fa5` | 4.82 |
-| Chip Urgent, on a stripe | `#ffd7db` | `#2d559a` | 5.57 |
-| Chip Urgent, on a hovered row | `#ffd7db` | `#3665aa` | 4.46 |
+| Chip New, on a panel | `#f9fbff` | `#3167ad` | 5.53 |
+| Chip New, on a stripe | `#f9fbff` | `#2b5da2` | 6.37 |
+| Chip New, on a hovered row | `#f9fbff` | `#346cb2` | 5.12 |
+| Chip In Progress, on a panel | `#fff4d6` | `#3365a0` | 5.49 |
+| Chip In Progress, on a stripe | `#fff4d6` | `#2d5b95` | 6.34 |
+| Chip In Progress, on a hovered row | `#fff4d6` | `#366aa6` | 5.08 |
+| Chip Resolved, on a panel | `#dff7e9` | `#2966a6` | 5.28 |
+| Chip Resolved, on a stripe | `#dff7e9` | `#235c9b` | 6.10 |
+| Chip Resolved, on a hovered row | `#dff7e9` | `#2c6bac` | 4.89 |
+| Chip Feedback, on a panel | `#ffebd9` | `#3362a1` | 5.35 |
+| Chip Feedback, on a stripe | `#ffebd9` | `#2d5896` | 6.18 |
+| Chip Feedback, on a hovered row | `#ffebd9` | `#3667a6` | 4.95 |
+| Chip Closed, on a panel | `#e7edf7` | `#2b62aa` | 5.18 |
+| Chip Closed, on a stripe | `#e7edf7` | `#25589f` | 5.97 |
+| Chip Closed, on a hovered row | `#e7edf7` | `#2f68b0` | 4.80 |
+| Chip Rejected, on a panel | `#ffe3e6` | `#335fa5` | 5.22 |
+| Chip Rejected, on a stripe | `#ffe3e6` | `#2d559a` | 6.03 |
+| Chip Rejected, on a hovered row | `#ffe3e6` | `#3665aa` | 4.83 |
+| Chip High, on a panel | `#ffebd9` | `#3362a1` | 5.35 |
+| Chip High, on a stripe | `#ffebd9` | `#2d5896` | 6.18 |
+| Chip High, on a hovered row | `#ffebd9` | `#3667a6` | 4.95 |
+| Chip Urgent, on a panel | `#ffe3e6` | `#335fa5` | 5.22 |
+| Chip Urgent, on a stripe | `#ffe3e6` | `#2d559a` | 6.03 |
+| Chip Urgent, on a hovered row | `#ffe3e6` | `#3665aa` | 4.83 |
 | White on priority Immediate (issue page chip) | `#ffffff` | `#b3123f` | 6.83 |
 | White on an avatar disc | `#ffffff` | `#163f7a` | 10.36 |
 
-Lowest text pair: 4.46.
+Lowest text pair: 4.80.
 
 | Control | Foreground | Background | Ratio |
 |---|---|---|---|
@@ -120,30 +120,30 @@ Lowest text pair: 4.46.
 | Status block, unavailable | `#ffe9b0` | `#574411` | 7.83 |
 | Title block text | `#ffffff` | `#0b2648` | 15.16 |
 | Navy plate button text (Home plugin) | `#ffffff` | `#0f3a75` | 11.16 |
-| Chip New, on a panel | `#f6fafe` | `#22426c` | 9.69 |
-| Chip New, on a stripe | `#f6fafe` | `#1d375b` | 11.41 |
-| Chip New, on a hovered row | `#f6fafe` | `#284e7f` | 8.04 |
-| Chip In Progress, on a panel | `#fff0c6` | `#24405f` | 9.40 |
-| Chip In Progress, on a stripe | `#fff0c6` | `#1f354e` | 11.05 |
-| Chip In Progress, on a hovered row | `#fff0c6` | `#2a4c72` | 7.82 |
-| Chip Resolved, on a panel | `#d2f4e1` | `#1a4165` | 8.97 |
-| Chip Resolved, on a stripe | `#d2f4e1` | `#153654` | 10.55 |
-| Chip Resolved, on a hovered row | `#d2f4e1` | `#1f4d78` | 7.45 |
-| Chip Feedback, on a panel | `#ffe3c9` | `#243d60` | 8.97 |
-| Chip Feedback, on a stripe | `#ffe3c9` | `#1f324f` | 10.52 |
-| Chip Feedback, on a hovered row | `#ffe3c9` | `#2a4973` | 7.46 |
-| Chip Closed, on a panel | `#d6e0ee` | `#1b3c68` | 8.30 |
-| Chip Closed, on a stripe | `#d6e0ee` | `#163157` | 9.75 |
-| Chip Closed, on a hovered row | `#d6e0ee` | `#20487b` | 6.90 |
-| Chip Rejected, on a panel | `#ffd7db` | `#243a64` | 8.57 |
-| Chip Rejected, on a stripe | `#ffd7db` | `#1f2f53` | 10.04 |
-| Chip Rejected, on a hovered row | `#ffd7db` | `#2a4677` | 7.14 |
-| Chip High, on a panel | `#ffe3c9` | `#243d60` | 8.97 |
-| Chip High, on a stripe | `#ffe3c9` | `#1f324f` | 10.52 |
-| Chip High, on a hovered row | `#ffe3c9` | `#2a4973` | 7.46 |
-| Chip Urgent, on a panel | `#ffd7db` | `#243a64` | 8.57 |
-| Chip Urgent, on a stripe | `#ffd7db` | `#1f2f53` | 10.04 |
-| Chip Urgent, on a hovered row | `#ffd7db` | `#2a4677` | 7.14 |
+| Chip New, on a panel | `#f9fbff` | `#22426c` | 9.82 |
+| Chip New, on a stripe | `#f9fbff` | `#1d375b` | 11.57 |
+| Chip New, on a hovered row | `#f9fbff` | `#284e7f` | 8.16 |
+| Chip In Progress, on a panel | `#fff4d6` | `#24405f` | 9.74 |
+| Chip In Progress, on a stripe | `#fff4d6` | `#1f354e` | 11.45 |
+| Chip In Progress, on a hovered row | `#fff4d6` | `#2a4c72` | 8.10 |
+| Chip Resolved, on a panel | `#dff7e9` | `#1a4165` | 9.41 |
+| Chip Resolved, on a stripe | `#dff7e9` | `#153654` | 11.07 |
+| Chip Resolved, on a hovered row | `#dff7e9` | `#1f4d78` | 7.81 |
+| Chip Feedback, on a panel | `#ffebd9` | `#243d60` | 9.51 |
+| Chip Feedback, on a stripe | `#ffebd9` | `#1f324f` | 11.16 |
+| Chip Feedback, on a hovered row | `#ffebd9` | `#2a4973` | 7.91 |
+| Chip Closed, on a panel | `#e2e9f3` | `#1b3c68` | 9.04 |
+| Chip Closed, on a stripe | `#e2e9f3` | `#163157` | 10.62 |
+| Chip Closed, on a hovered row | `#e2e9f3` | `#20487b` | 7.52 |
+| Chip Rejected, on a panel | `#ffe3e6` | `#243a64` | 9.28 |
+| Chip Rejected, on a stripe | `#ffe3e6` | `#1f2f53` | 10.87 |
+| Chip Rejected, on a hovered row | `#ffe3e6` | `#2a4677` | 7.72 |
+| Chip High, on a panel | `#ffebd9` | `#243d60` | 9.51 |
+| Chip High, on a stripe | `#ffebd9` | `#1f324f` | 11.16 |
+| Chip High, on a hovered row | `#ffebd9` | `#2a4973` | 7.91 |
+| Chip Urgent, on a panel | `#ffe3e6` | `#243a64` | 9.28 |
+| Chip Urgent, on a stripe | `#ffe3e6` | `#1f2f53` | 10.87 |
+| Chip Urgent, on a hovered row | `#ffe3e6` | `#2a4677` | 7.72 |
 | White on priority Immediate (issue page chip) | `#ffffff` | `#b3123f` | 6.83 |
 | White on an avatar disc | `#ffffff` | `#163f7a` | 10.36 |
 

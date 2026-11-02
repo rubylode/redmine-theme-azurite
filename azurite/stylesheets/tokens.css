@@ -105,7 +105,7 @@
   --theme-caution-ink: #ffe9b0;
   --theme-caution-soft: #6b5214;
   --theme-chip-ink-mix: #ffffff;        /* on a blue sheet a chip's text is its colour lifted towards white */
-  --theme-chip-ink-share: 35%;
+  --theme-chip-ink-share: 25%;
   --theme-chip-fill-share: 8%;
 
   /* Messages, avatars, activity markers, search highlights, diffs and the Gantt chart. */

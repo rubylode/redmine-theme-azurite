@@ -153,7 +153,7 @@ Text and controls meet WCAG AA in both modes. The page check measures every visi
 page; the tokens were also measured one by one, including the parts the check cannot see (field borders, focus rings, chips
 on a hovered row). The measured ratios are in [docs/accessibility.md](docs/accessibility.md). In short: body text 6.8:1 in light
 and 12.6:1 in dark on a panel, muted text at least 5.4:1 and 8.0:1, links at least 5.2:1 and 8.6:1, every status and priority
-chip at least 4.4:1 and 6.9:1, field borders at least 4.2:1 and focus rings at least 6.7:1.
+chip at least 4.8:1 and 6.9:1, field borders at least 4.2:1 and focus rings at least 6.7:1.
 
 ## Compatibility
 
