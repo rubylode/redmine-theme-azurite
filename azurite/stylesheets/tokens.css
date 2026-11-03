@@ -186,6 +186,21 @@
   --theme-sheet-plate: #184b8f;         /* the title block and the sign-in plate */
   --theme-phone-menu: #123d78;
   --theme-phone-menu-ink: #d6e6fb;
+
+  /* Chart colours: the Rubylode Stats plugin reads these. The page is a mid blue even in light, so these are the lighter Material 200 hues, each at least 3:1 against it. */
+  --theme-chart-1: #90CAF9;
+  --theme-chart-2: #A5D6A7;
+  --theme-chart-3: #FFB74D;
+  --theme-chart-4: #D1A3F0;
+  --theme-chart-5: #80DEEA;
+  --theme-chart-6: #EF9A9A;
+  --theme-chart-7: #C3B1E8;
+  --theme-chart-8: #C5E1A5;
+  --theme-chart-9: #FFAB91;
+  --theme-chart-10: #B0BEC5;
+  --theme-chart-open: #90CAF9;
+  --theme-chart-closed: #A5D6A7;
+  --theme-chart-neutral: #CFD8DC;
 }
 
 /* Redmine's palette, pointed at the tokens. Redmine 7 colours itself with the Open Color variables (--oc-*) and a few
