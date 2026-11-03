@@ -1,5 +1,7 @@
 # Rubylode Azurite for Redmine
 
+<p><img src="docs/thumbnail.png" alt="Rubylode Azurite theme" width="160"></p>
+
 A blueprint theme for Redmine 7 and up: a cobalt sheet with white drawing lines, a grid, square corners and a title block at the foot of the page.
 
 It is plain CSS plus one small script (`javascripts/theme.js`), with no plugin, no build step and no change to Redmine itself. The script only reads the page. It puts a ring round each issue number in a list, adds a ring with the assignee's initials, builds a row of view tabs (Issues, Gantt, Calendar, Activity) above the issue list, draws a title block at the foot of the page, and tags status groups and the scrolled header the way every Rubylode theme does. Without the script the theme still works, with plain numbers and names and the project menu for the views. It is built on the shared Rubylode theme base, so it covers the same pages as the other Rubylode themes and styles the Rubylode plugins.
