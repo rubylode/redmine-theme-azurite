@@ -2,6 +2,12 @@
 
 <p><img src="docs/thumbnail.png" alt="Rubylode Azurite theme" width="160"></p>
 
+[![check](https://img.shields.io/github/actions/workflow/status/rubylode/redmine-theme-azurite/check.yml?branch=main&label=check)](https://github.com/rubylode/redmine-theme-azurite/actions/workflows/check.yml)
+[![security](https://img.shields.io/github/actions/workflow/status/rubylode/redmine-theme-azurite/security.yml?branch=main&label=security)](https://github.com/rubylode/redmine-theme-azurite/actions/workflows/security.yml)
+[![version](https://img.shields.io/github/v/tag/rubylode/redmine-theme-azurite?sort=semver&label=version)](https://github.com/rubylode/redmine-theme-azurite/tags)
+[![license](https://img.shields.io/github/license/rubylode/redmine-theme-azurite)](https://github.com/rubylode/redmine-theme-azurite/blob/main/LICENSE)
+![Redmine](https://img.shields.io/badge/Redmine-7.0-b22222)
+
 A blueprint theme for Redmine 7 and up: a cobalt sheet with white drawing lines, a grid, square corners and a title block at the foot of the page.
 
 It is plain CSS plus one small script (`javascripts/theme.js`), with no plugin, no build step and no change to Redmine itself. The script only reads the page. It puts a ring round each issue number in a list, adds a ring with the assignee's initials, builds a row of view tabs (Issues, Gantt, Calendar, Activity) above the issue list, draws a title block at the foot of the page, and tags status groups and the scrolled header the way every Rubylode theme does. Without the script the theme still works, with plain numbers and names and the project menu for the views. It is built on the shared Rubylode theme base, so it covers the same pages as the other Rubylode themes and styles the Rubylode plugins.
